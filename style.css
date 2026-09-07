@@ -1068,15 +1068,133 @@ body {
 
 @media (max-width: 900px) {
 
-    .area-puzzle {
+    /* ================================
+       PAINEL MOBILE
+       ================================ */
 
-        grid-template-columns: 1fr;
-
+    .painel {
+        padding: 18px;
     }
+
+
+    /* ================================
+       LAYOUT PRINCIPAL
+       ================================ */
+
+    .area-puzzle {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+
+    /* ================================
+       CAIXA DE ENERGIA
+       ================================ */
+
+    .caixa {
+        padding: 20px;
+        min-height: 0;
+    }
+
+
+    /* ================================
+       SLOTS — UMA COLUNA
+       ================================ */
 
     .slots {
         grid-template-columns: 1fr;
-        gap: 20px;
+
+        gap: 14px;
+
+        width: 100%;
+        max-width: 300px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* ================================
+       SLOT
+       ================================ */
+
+    .slot {
+        width: 100%;
+        height: 85px;
+    }
+
+
+    /* Número do slot */
+
+    .numero {
+        left: -22px;
+        font-size: 10px;
+    }
+
+
+    /* ================================
+       CORPO DO FUSÍVEL
+       ================================ */
+
+    .corpo-fusivel {
+        width: 155px;
+        height: 38px;
+    }
+
+
+    /* ================================
+       TERMINAIS
+       ================================ */
+
+    .terminal {
+        width: 15px;
+        height: 15px;
+    }
+
+    .terminal-esquerdo {
+        left: 18px;
+    }
+
+    .terminal-direito {
+        right: 18px;
+    }
+
+
+    /* ================================
+       FUSÍVEL INTERNO
+       ================================ */
+
+    .fusivel-interno {
+        width: 145px;
+        height: 32px;
+    }
+
+
+    /* ================================
+       FIO
+       ================================ */
+
+    .fusivel-interno .fio {
+        width: 55px;
+    }
+
+
+    /* ================================
+       BOTÃO RESET
+       ================================ */
+
+    .btn-reset {
+        margin-top: 20px;
+    }
+
+
+    /* ================================
+       PAINÉIS LATERAIS
+       ================================ */
+
+    .disponiveis,
+    .encontrados {
+        width: 100%;
     }
 
 }
