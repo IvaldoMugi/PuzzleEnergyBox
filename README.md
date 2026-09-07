@@ -6,7 +6,7 @@ O jogador precisa identificar e posicionar corretamente os fusíveis na caixa de
 
 ## 🎮 Jogar
 
-👉 <a href="https://ivaldomugi.github.io/PuzzleEnergyBox/" target="_blank">🎮 Acessar o Puzzle Energy Box</a>
+👉 **[Acessar o Puzzle Energy Box](https://ivaldomugi.github.io/PuzzleEnergyBox/)**
 
 ## 🧩 Sobre o projeto
 
