@@ -413,6 +413,59 @@ function tocarSomCombinacao() {
     oscilador2.stop(agora + 0.28);
 }
 
+// ========================================
+// SOM DE INSTALAÇÃO DO FUSÍVEL
+// ========================================
+
+function tocarSomInstalacao() {
+
+    if (!audioContext) {
+        audioContext =
+            new (window.AudioContext ||
+            window.webkitAudioContext)();
+    }
+
+    if (audioContext.state === "suspended") {
+        audioContext.resume();
+    }
+
+    const agora =
+        audioContext.currentTime;
+
+    const oscilador =
+        audioContext.createOscillator();
+
+    const ganho =
+        audioContext.createGain();
+
+    oscilador.type = "square";
+
+    oscilador.frequency.setValueAtTime(
+        420,
+        agora
+    );
+
+    ganho.gain.setValueAtTime(
+        0.0001,
+        agora
+    );
+
+    ganho.gain.exponentialRampToValueAtTime(
+        0.08,
+        agora + 0.01
+    );
+
+    ganho.gain.exponentialRampToValueAtTime(
+        0.0001,
+        agora + 0.10
+    );
+
+    oscilador.connect(ganho);
+    ganho.connect(audioContext.destination);
+
+    oscilador.start(agora);
+    oscilador.stop(agora + 0.10);
+}
 
 // ========================================
 // ATUALIZAR PAINEL DE DISPONÍVEIS
@@ -526,15 +579,18 @@ fusiveisDisponiveis.forEach(function (fusivel) {
 });
 
 
+
 // ========================================
 // VARIÁVEIS DO ARRASTE
 // ========================================
 
 let fusivelArrastado = null;
 
+let fusivelSelecionado = null;
+let ultimoToque = 0;
+
 let offsetX = 0;
 let offsetY = 0;
-
 
 // ========================================
 // COMEÇAR A ARRASTAR
@@ -542,9 +598,66 @@ let offsetY = 0;
 
 function iniciarArraste(evento) {
 
+    // No celular: detecta toque duplo
+    if (evento.pointerType === "touch") {
+
+        const fusivel =
+            evento.currentTarget;
+
+        const agora =
+            Date.now();
+
+        if (
+            fusivelSelecionado === fusivel &&
+            agora - ultimoToque < 400
+        ) {
+
+            const tipo =
+                fusivel.dataset.tipo;
+
+            const indice =
+                fusivelPorSlot.indexOf(tipo);
+
+            if (indice !== -1) {
+
+                const slot =
+                    slots[indice];
+
+                fusivelSelecionado = null;
+                ultimoToque = 0;
+
+                fusivel.classList.remove(
+                    "selecionado"
+                );
+
+                instalarFusivel(
+                    slot,
+                    tipo
+                );
+
+            }
+
+            return;
+        }
+
+        fusivelSelecionado =
+            fusivel;
+
+        ultimoToque =
+            agora;
+
+        fusivelSelecionado.classList.add(
+            "selecionado"
+        );
+
+        return;
+    }
+
+    // No PC: mantém o arraste normal
     evento.preventDefault();
 
-    fusivelArrastado = evento.currentTarget;
+    fusivelArrastado =
+        evento.currentTarget;
 
 
     const rect =
@@ -761,6 +874,8 @@ function instalarFusivel(
 
     estadoCaixa.slots[indice] =
         tipoFusivel;
+    
+    tocarSomInstalacao();
 
 
     console.log(
