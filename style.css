@@ -461,8 +461,6 @@ body {
 
     border: 1px solid #333;
 
-    touch-action: none;
-
     border-radius: 6px;
 
     cursor: grab;
@@ -1266,4 +1264,20 @@ body {
     box-shadow:
         0 0 8px #8955cf,
         0 0 15px rgba(137, 85, 207, 0.5);
+}
+
+.instrucao-mobile {
+    display: none;
+}
+
+@media (max-width: 900px) {
+
+    .instrucao-desktop {
+        display: none;
+    }
+
+    .instrucao-mobile {
+        display: block;
+    }
+
 }
