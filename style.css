@@ -1,0 +1,1140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at center, #252525 0%, #111 60%, #080808 100%);
+
+    color: #ddd;
+
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+}
+
+.app {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.titulo {
+    margin-bottom: 25px;
+}
+
+.titulo h1 {
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #e6e6e6;
+}
+
+.titulo p {
+    margin-top: 6px;
+    color: #777;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+
+/* PAINEL PRINCIPAL */
+
+.painel {
+    background: #181818;
+
+    border: 2px solid #333;
+    border-radius: 12px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        inset 0 0 30px rgba(255, 255, 255, 0.02);
+}
+
+
+/* STATUS */
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    color: #888;
+}
+
+.luz-status {
+    width: 9px;
+    height: 9px;
+
+    background: #555;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 8px #555;
+}
+
+/* ========================================
+   STATUS DAS COMBINAÇÕES
+   ======================================== */
+
+.luz-status.status-verde {
+    background: #3ca94b;
+
+    box-shadow:
+        0 0 8px #3ca94b,
+        0 0 15px rgba(60, 169, 75, 0.5);
+}
+
+
+.luz-status.status-amarelo {
+    background: #d5a62a;
+
+    box-shadow:
+        0 0 8px #d5a62a,
+        0 0 15px rgba(213, 166, 42, 0.5);
+}
+
+
+.luz-status.status-roxo {
+    background: #8955cf;
+
+    box-shadow:
+        0 0 8px #8955cf,
+        0 0 15px rgba(137, 85, 207, 0.5);
+}
+
+
+/* CAIXA */
+
+.caixa {
+    background: #242424;
+
+    border: 3px solid #444;
+
+    border-radius: 8px;
+
+    padding: 35px;
+
+    min-height: 500px;
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+
+/* SLOTS */
+
+.slots {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px 50px;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+.slot {
+    height: 110px;
+
+    background: #151515;
+
+    border: 2px solid #3a3a3a;
+
+    border-radius: 8px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.numero {
+    position: absolute;
+
+    left: -30px;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+/* ========================================
+   ENCAIXE DO FUSÍVEL
+   ======================================== */
+
+.slot {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Corpo onde o fusível será colocado */
+
+.corpo-fusivel {
+    width: 180px;
+    height: 45px;
+
+    border: 2px solid #555;
+    border-radius: 6px;
+
+    background: #1b1b1b;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+/* ========================================
+   GUIA DO ENCAIXE — SLOT VAZIO
+   ======================================== */
+
+.corpo-fusivel.vazio {
+    border-color: #333;
+}
+
+
+/* VERMELHO */
+
+.corpo-fusivel.vazio.vermelho {
+    background: #1c1010;
+}
+
+
+/* VERDE */
+
+.corpo-fusivel.vazio.verde {
+    background: #101b13;
+}
+
+
+/* AMARELO */
+
+.corpo-fusivel.vazio.amarelo {
+    background: #1d190d;
+}
+
+
+/* ROSA */
+
+.corpo-fusivel.vazio.rosa {
+    background: #1d1019;
+}
+
+
+/* ROXO */
+
+.corpo-fusivel.vazio.roxo {
+    background: #151020;
+}
+
+.nome-fusivel {
+    color: #666;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+
+    width: 100%;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.corpo-fusivel.vazio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Terminais elétricos */
+
+.terminal {
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid #777;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+.terminal-esquerdo {
+    left: 25px;
+}
+
+
+.terminal-direito {
+    right: 25px;
+}
+
+/* ========================================
+   FUSÍVEL VERMELHO
+   ======================================== */
+
+.fusivel-vermelho {
+    width: 170px;
+    height: 38px;
+
+    border: 2px solid #8f1f1f;
+    border-radius: 5px;
+
+    background: #260f0f;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 0, 0, 0.12);
+}
+
+
+/* Fio interno */
+
+.fio {
+    width: 70px;
+    height: 2px;
+
+    background: #b52a2a;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+        0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+
+/* Pequena "serpentina" no meio do fusível */
+
+.fio::before {
+    content: "";
+
+    position: absolute;
+
+    width: 40px;
+    height: 10px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-top: 2px solid #d33;
+    border-bottom: 2px solid #d33;
+}
+
+/* ========================================
+   ÁREA DO PUZZLE
+   ======================================== */
+
+.area-puzzle {
+    display: grid;
+
+    grid-template-columns: 1fr 260px;
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+
+/* ========================================
+   ÁREA DE FUSÍVEIS DISPONÍVEIS
+   ======================================== */
+
+.disponiveis {
+    background: #121212;
+
+    border: 2px solid #333;
+
+    border-radius: 8px;
+
+    padding: 22px;
+}
+
+.disponiveis h2 {
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    color: #bbb;
+
+    margin-bottom: 8px;
+}
+
+.instrucao {
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   CHECKBOX
+   ======================================== */
+
+.fusivel-opcao {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    transition: background 0.2s;
+}
+
+.fusivel-opcao:hover {
+    background: #1d1d1d;
+}
+
+.fusivel-opcao input {
+    accent-color: #a52a2a;
+
+    width: 16px;
+    height: 16px;
+}
+
+
+/* ========================================
+   FUSÍVEL DISPONÍVEL
+   ======================================== */
+
+.fusivel-disponivel {
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border: 1px solid #333;
+
+    border-radius: 6px;
+
+    cursor: grab;
+
+    background: #191919;
+
+    text-align: center;
+
+    color: #888;
+
+    font-size: 11px;
+
+    user-select: none;
+
+    transition:
+        border-color 0.2s,
+        background 0.2s,
+        transform 0.2s;
+}
+
+.fusivel-disponivel:hover {
+    background: #202020;
+
+    border-color: #555;
+
+    transform: translateY(-2px);
+}
+
+.fusivel-disponivel:active {
+    cursor: grabbing;
+}
+
+
+/* ========================================
+   MINI FUSÍVEL
+   ======================================== */
+
+.mini-fusivel {
+    width: 140px;
+    height: 32px;
+
+    margin: 0 auto 12px;
+
+    border-radius: 4px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.mini-fusivel.vermelho {
+    border: 2px solid #8f1f1f;
+
+    background: #260f0f;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 0, 0, 0.15);
+}
+
+.mini-fio {
+    width: 55px;
+    height: 2px;
+
+    background: #b52a2a;
+
+    box-shadow:
+        0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* ========================================
+   BOTÃO RESET
+   ======================================== */
+
+.btn-reset {
+    display: block;
+
+    margin: 30px auto 0;
+
+    padding: 10px 18px;
+
+    background: #181818;
+
+    border: 1px solid #444;
+
+    border-radius: 5px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        color 0.2s,
+        box-shadow 0.2s;
+}
+
+.btn-reset:hover {
+    background: #222;
+
+    border-color: #777;
+
+    color: #bbb;
+}
+
+.btn-reset:active {
+    transform: translateY(1px);
+}
+
+/* ========================================
+   FUSÍVEL SENDO ARRASTADO
+   ======================================== */
+
+.fusivel-disponivel.arrastando {
+    opacity: 0.5;
+
+    transform: scale(0.95);
+}
+
+
+/* ========================================
+   SLOT RECEBENDO FUSÍVEL
+   ======================================== */
+
+.slot.recebendo {
+    border-color: #777;
+
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.08),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   FUSÍVEIS — CORES
+   ======================================== */
+
+.fusivel-interno {
+    width: 170px;
+    height: 38px;
+
+    border: 2px solid;
+    border-radius: 5px;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* VERMELHO */
+
+.fusivel-interno.vermelho {
+    border-color: #8f1f1f;
+    background: #260f0f;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 0, 0, 0.12);
+}
+
+
+/* VERDE */
+
+.fusivel-interno.verde {
+    border-color: #2f7d3b;
+    background: #102414;
+
+    box-shadow:
+        inset 0 0 12px rgba(0, 255, 60, 0.12);
+}
+
+
+/* AMARELO */
+
+.fusivel-interno.amarelo {
+    border-color: #a27b20;
+    background: #29200c;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 200, 0, 0.12);
+}
+
+
+/* ROSA */
+
+.fusivel-interno.rosa {
+    border-color: #a52c72;
+    background: #2b0d20;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 0, 150, 0.12);
+}
+
+
+/* ROXO */
+
+.fusivel-interno.roxo {
+    border-color: #603c9b;
+    background: #180f2a;
+
+    box-shadow:
+        inset 0 0 12px rgba(150, 50, 255, 0.12);
+}
+
+
+/* ========================================
+   FIO DOS FUSÍVEIS
+   ======================================== */
+
+.fusivel-interno .fio {
+    width: 70px;
+    height: 2px;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* FIO VERMELHO */
+
+.fusivel-interno.vermelho .fio {
+    background: #b52a2a;
+
+    box-shadow:
+        0 0 5px rgba(255, 0, 0, 0.5);
+
+}
+
+
+/* FIO VERDE */
+
+.fusivel-interno.verde .fio {
+    background: #3ca94b;
+
+    box-shadow:
+        0 0 5px rgba(0, 255, 60, 0.5);
+
+}
+
+
+/* FIO AMARELO */
+
+.fusivel-interno.amarelo .fio {
+    background: #d5a62a;
+
+    box-shadow:
+        0 0 5px rgba(255, 200, 0, 0.5);
+
+}
+
+
+/* FIO ROSA */
+
+.fusivel-interno.rosa .fio {
+    background: #d63c94;
+
+    box-shadow:
+        0 0 5px rgba(255, 0, 150, 0.5);
+
+}
+
+
+/* FIO ROXO */
+
+.fusivel-interno.roxo .fio {
+    background: #8955cf;
+
+    box-shadow:
+        0 0 5px rgba(150, 50, 255, 0.5);
+
+}
+
+/* ========================================
+   SERPENTINA — COMBINAÇÃO ATIVA
+   ======================================== */
+
+.slot.combinacao-ativa .fusivel-interno.vermelho .fio::before {
+    border-top-color: #b52a2a;
+    border-bottom-color: #b52a2a;
+}
+
+.slot.combinacao-ativa .fusivel-interno.verde .fio::before {
+    border-top-color: #3ca94b;
+    border-bottom-color: #3ca94b;
+}
+
+.slot.combinacao-ativa .fusivel-interno.amarelo .fio::before {
+    border-top-color: #d5a62a;
+    border-bottom-color: #d5a62a;
+}
+
+.slot.combinacao-ativa .fusivel-interno.rosa .fio::before {
+    border-top-color: #d63c94;
+    border-bottom-color: #d63c94;
+}
+
+.slot.combinacao-ativa .fusivel-interno.roxo .fio::before {
+    border-top-color: #8955cf;
+    border-bottom-color: #8955cf;
+}
+
+/* ========================================
+   MINI FUSÍVEIS
+   ======================================== */
+
+.mini-fusivel.verde {
+    border: 2px solid #2f7d3b;
+
+    background: #102414;
+
+    box-shadow:
+        inset 0 0 12px rgba(0, 255, 60, 0.15);
+}
+
+
+.mini-fusivel.amarelo {
+    border: 2px solid #a27b20;
+
+    background: #29200c;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 200, 0, 0.15);
+}
+
+
+.mini-fusivel.rosa {
+    border: 2px solid #a52c72;
+
+    background: #2b0d20;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 0, 150, 0.15);
+}
+
+
+.mini-fusivel.roxo {
+    border: 2px solid #603c9b;
+
+    background: #180f2a;
+
+    box-shadow:
+        inset 0 0 12px rgba(150, 50, 255, 0.15);
+}
+
+
+/* FIO DOS MINI FUSÍVEIS */
+
+.mini-fusivel.vermelho .mini-fio {
+    background: #b52a2a;
+
+    box-shadow:
+        0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+
+.mini-fusivel.verde .mini-fio {
+    background: #3ca94b;
+
+    box-shadow:
+        0 0 5px rgba(0, 255, 60, 0.5);
+}
+
+
+.mini-fusivel.amarelo .mini-fio {
+    background: #d5a62a;
+
+    box-shadow:
+        0 0 5px rgba(255, 200, 0, 0.5);
+}
+
+
+.mini-fusivel.rosa .mini-fio {
+    background: #d63c94;
+
+    box-shadow:
+        0 0 5px rgba(255, 0, 150, 0.5);
+}
+
+
+.mini-fusivel.roxo .mini-fio {
+    background: #8955cf;
+
+    box-shadow:
+        0 0 5px rgba(150, 50, 255, 0.5);
+}
+
+/* ========================================
+   NOVO LAYOUT DO PAINEL
+   ======================================== */
+
+.app {
+    max-width: 1400px;
+}
+
+
+/* ========================================
+   TRÊS COLUNAS
+   ======================================== */
+
+.area-puzzle {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(620px, 1fr)
+        240px
+        240px;
+
+    gap: 20px;
+
+    align-items: stretch;
+}
+
+
+/* ========================================
+   CAIXA PRINCIPAL
+   ======================================== */
+
+.caixa {
+    min-width: 0;
+}
+
+
+/* ========================================
+   PAINÉIS LATERAIS
+   ======================================== */
+
+.disponiveis,
+.encontrados {
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #151515,
+            #101010
+        );
+
+    padding: 20px;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ========================================
+   TÍTULOS
+   ======================================== */
+
+.disponiveis h2,
+.encontrados h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* ========================================
+   INSTRUÇÕES
+   ======================================== */
+
+.disponiveis .instrucao,
+.encontrados .instrucao {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ========================================
+   ESTADO VAZIO
+   ======================================== */
+
+.nenhum-disponivel {
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border: 1px dashed #333;
+
+    border-radius: 6px;
+
+    color: #555;
+
+}
+
+
+.nenhum-disponivel span {
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.nenhum-disponivel p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ========================================
+   FUSÍVEIS ENCONTRADOS
+   ======================================== */
+
+.lista-encontrados {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.encontrados .fusivel-opcao {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ========================================
+   FUSÍVEIS DISPONÍVEIS
+   ======================================== */
+
+.disponiveis {
+
+    overflow: hidden;
+
+}
+
+
+.disponiveis .fusivel-disponivel {
+
+    margin-bottom: 12px;
+
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 1100px) {
+
+    .area-puzzle {
+
+        grid-template-columns:
+            minmax(500px, 1fr)
+            200px
+            200px;
+
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .area-puzzle {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* ========================================
+   COMBINAÇÃO CORRETA
+   ======================================== */
+
+.slot.combinacao-ativa {
+    background: #222222;
+}
+
+
+/* ========================================
+   COMBINAÇÃO DE MENSAGENS
+   ======================================== */
+
+.status-mensagens {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+.status-mensagem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.status-indicador {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+
+.status-indicador.status-verde {
+    background: #3ca94b;
+
+    box-shadow:
+        0 0 8px #3ca94b,
+        0 0 15px rgba(60, 169, 75, 0.5);
+}
+
+
+.status-indicador.status-amarelo {
+    background: #d5a62a;
+
+    box-shadow:
+        0 0 8px #d5a62a,
+        0 0 15px rgba(213, 166, 42, 0.5);
+}
+
+
+.status-indicador.status-roxo {
+    background: #8955cf;
+
+    box-shadow:
+        0 0 8px #8955cf,
+        0 0 15px rgba(137, 85, 207, 0.5);
+}

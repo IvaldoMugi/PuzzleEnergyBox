@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vendeta Oculta - Caixa de Energia</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%23181818'/%3E%3Cpath d='M25 50h50M35 35v30M65 35v30' stroke='%233ca94b' stroke-width='8'/%3E%3C/svg%3E">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="titulo">
+            <h1>CAIXA DE ENERGIA</h1>
+            <p>Sistema elétrico — Controle auxiliar</p>
+        </header>
+
+        <section class="painel">
+
+            <div class="status">
+                <span class="luz-status"></span>
+
+                <div class="status-mensagens">
+                    <span>SISTEMA EM ESPERA</span>
+                </div>
+            </div>
+
+            <div class="area-puzzle">
+
+                <!-- CAIXA DE FUSÍVEIS -->
+
+                <div class="caixa">
+
+                    <div class="slots">
+
+                        <div class="slot" data-slot="1">
+                            <span class="numero">1</span>
+                        </div>
+
+                        <div class="slot" data-slot="2">
+                            <span class="numero">2</span>
+                        </div>
+
+                        <div class="slot" data-slot="3">
+                            <span class="numero">3</span>
+                        </div>
+
+                        <div class="slot" data-slot="4">
+                            <span class="numero">4</span>
+                        </div>
+
+                        <div class="slot" data-slot="5">
+                            <span class="numero">5</span>
+                        </div>
+
+                        <div class="slot" data-slot="6">
+                            <span class="numero">6</span>
+                        </div>
+
+                    </div>
+                    <button id="btn-reset" class="btn-reset">
+                        ↻ RESETAR CAIXA
+                    </button>
+
+                </div>
+
+
+                <!-- ========================================
+                    FUSÍVEIS DISPONÍVEIS
+                    ======================================== -->
+
+                <aside class="disponiveis">
+
+                    <h2>FUSÍVEIS DISPONÍVEIS</h2>
+
+                    <p class="instrucao">
+                        Arraste um fusível para a caixa.
+                    </p>
+
+
+                    <div id="nenhum-disponivel" class="nenhum-disponivel">
+
+                        <span>—</span>
+
+                        <p>
+                            Nenhum fusível<br>
+                            disponível.
+                        </p>
+
+                    </div>
+
+
+                    <!-- VERMELHO -->
+
+                    <div class="fusivel-disponivel"
+                        data-tipo="vermelho"
+                        draggable="true">
+
+                        <div class="mini-fusivel vermelho">
+                            <div class="mini-fio"></div>
+                        </div>
+
+                        <span>Fusível Vermelho</span>
+
+                    </div>
+
+
+                    <!-- VERDE -->
+
+                    <div class="fusivel-disponivel"
+                        data-tipo="verde"
+                        draggable="true">
+
+                        <div class="mini-fusivel verde">
+                            <div class="mini-fio"></div>
+                        </div>
+
+                        <span>Fusível Verde</span>
+
+                    </div>
+
+
+                    <!-- AMARELO 1 -->
+
+                    <div class="fusivel-disponivel"
+                        data-tipo="amarelo1"
+                        draggable="true">
+
+                        <div class="mini-fusivel amarelo">
+                            <div class="mini-fio"></div>
+                        </div>
+
+                        <span>Fusível Amarelo 1</span>
+
+                    </div>
+
+
+                    <!-- AMARELO 2 -->
+
+                    <div class="fusivel-disponivel"
+                        data-tipo="amarelo2"
+                        draggable="true">
+
+                        <div class="mini-fusivel amarelo">
+                            <div class="mini-fio"></div>
+                        </div>
+
+                        <span>Fusível Amarelo 2</span>
+
+                    </div>
+
+
+                    <!-- ROSA -->
+
+                    <div class="fusivel-disponivel"
+                        data-tipo="rosa"
+                        draggable="true">
+
+                        <div class="mini-fusivel rosa">
+                            <div class="mini-fio"></div>
+                        </div>
+
+                        <span>Fusível Rosa</span>
+
+                    </div>
+
+
+                    <!-- ROXO -->
+
+                    <div class="fusivel-disponivel"
+                        data-tipo="roxo"
+                        draggable="true">
+
+                        <div class="mini-fusivel roxo">
+                            <div class="mini-fio"></div>
+                        </div>
+
+                        <span>Fusível Roxo</span>
+
+                    </div>
+
+                </aside>
+
+
+                <!-- ========================================
+                    FUSÍVEIS ENCONTRADOS
+                    ======================================== -->
+
+                <aside class="encontrados">
+
+                    <h2>FUSÍVEIS ENCONTRADOS</h2>
+
+                    <p class="instrucao">
+                        Marque os fusíveis encontrados.
+                    </p>
+
+
+                    <div class="lista-encontrados">
+
+                        <label class="fusivel-opcao">
+                            <input type="checkbox"
+                                data-fusivel="vermelho">
+
+                            <span>Vermelho</span>
+                        </label>
+
+
+                        <label class="fusivel-opcao">
+                            <input type="checkbox"
+                                data-fusivel="verde">
+
+                            <span>Verde</span>
+                        </label>
+
+
+                        <label class="fusivel-opcao">
+                            <input type="checkbox"
+                                data-fusivel="amarelo1">
+
+                            <span>Amarelo 1</span>
+                        </label>
+
+
+                        <label class="fusivel-opcao">
+                            <input type="checkbox"
+                                data-fusivel="amarelo2">
+
+                            <span>Amarelo 2</span>
+                        </label>
+
+
+                        <label class="fusivel-opcao">
+                            <input type="checkbox"
+                                data-fusivel="rosa">
+
+                            <span>Rosa</span>
+                        </label>
+
+
+                        <label class="fusivel-opcao">
+                            <input type="checkbox"
+                                data-fusivel="roxo">
+
+                            <span>Roxo</span>
+                        </label>
+
+                    </div>
+
+</aside>
+
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
